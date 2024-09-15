@@ -17,7 +17,7 @@ describe('', () => {
   it('should error list when name and id is empty', () => {
     expect(() => {
       new CustomerEntity({ id: '', name: '' });
-    }).toThrow('customer: name is invalid, customer: id is invalid');
+    }).toThrow('customer: id is invalid, customer: name is invalid');
   });
 
   it('should update name client', () => {

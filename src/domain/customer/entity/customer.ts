@@ -1,3 +1,4 @@
+import { CustomerValidatorFactory } from '@/customer/factory/customer.validator.validar';
 import { AddressValueObject } from '@/customer/value-object/address';
 import { Entity } from '@/shared/entity/entitie.absctract';
 import { NotificationError } from '@/shared/notification/notification.error';
@@ -22,19 +23,8 @@ export class CustomerEntity extends Entity {
   }
 
   validate() {
-    if (!this._name.trim()) {
-      this.notification.addError({
-        context: 'customer',
-        message: 'name is invalid',
-      });
-    }
-
-    if (!this.id.trim()) {
-      this.notification.addError({
-        context: 'customer',
-        message: 'id is invalid',
-      });
-    }
+      // agora nosso domain não sabe mais quem é o yup, apenas que alguém valida isso.
+    CustomerValidatorFactory.create().validate(this);
 
     if (this.notification.hasErrors()) {
       throw new NotificationError(this.notification.getErrors());

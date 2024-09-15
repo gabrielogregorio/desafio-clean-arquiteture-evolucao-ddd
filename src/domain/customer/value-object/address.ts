@@ -1,3 +1,5 @@
+/// ele é responsável por se auto validar
+
 export class AddressValueObject {
   _street: string = '';
   _number: number = 0;
