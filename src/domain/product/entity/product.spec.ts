@@ -3,14 +3,20 @@ import { ProductEntity } from './product';
 describe('Product unit tests', () => {
   it('should thrown error on id is empty', () => {
     expect(() => {
-      new ProductEntity({ id: '', name: 'name', price: 100 });
-    }).toThrow('id is required');
+      new ProductEntity({ id: '123', name: '', price: 100 });
+    }).toThrow('product: name is required');
   });
 
   it('should thrown error on name is empty', () => {
     expect(() => {
-      new ProductEntity({ id: '123', name: '', price: 100 });
-    }).toThrow('name is required');
+      new ProductEntity({ id: '', name: 'name', price: 100 });
+    }).toThrow('product: id is required');
+  });
+
+  it('should error list when name and id is empty', () => {
+    expect(() => {
+      new ProductEntity({ id: '', name: '', price: 100 });
+    }).toThrow('product: id is required, product: name is required');
   });
 
   it('should thrown error on price is less than 0', () => {

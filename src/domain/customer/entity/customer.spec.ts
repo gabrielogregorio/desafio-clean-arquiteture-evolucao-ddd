@@ -5,13 +5,19 @@ describe('', () => {
   it('should error when id is empty', () => {
     expect(() => {
       new CustomerEntity({ id: '', name: 'name' });
-    }).toThrow('id is invalid');
+    }).toThrow('customer: id is invalid');
   });
 
   it('should error when name is empty', () => {
     expect(() => {
       new CustomerEntity({ id: '123', name: '' });
-    }).toThrow('name is invalid');
+    }).toThrow('customer: name is invalid');
+  });
+
+  it('should error list when name and id is empty', () => {
+    expect(() => {
+      new CustomerEntity({ id: '', name: '' });
+    }).toThrow('customer: name is invalid, customer: id is invalid');
   });
 
   it('should update name client', () => {

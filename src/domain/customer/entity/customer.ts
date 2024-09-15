@@ -1,13 +1,16 @@
 import { AddressValueObject } from '@/customer/value-object/address';
+import { Entity } from '@/shared/entity/entitie.absctract';
+import { NotificationError } from '@/shared/notification/notification.error';
 
-export class CustomerEntity {
-  private _id: string; // entities devem ter ids
+export class CustomerEntity extends Entity {
+  // private _id: string; // entities devem ter ids / vem do entity agora
   private _name: string;
   private _address?: AddressValueObject;
   private _active: boolean;
   private _rewardsPoints: number = 0;
 
   constructor({ id, name }: { id: string; name: string }) {
+    super();
     this._id = id;
     this._name = name;
     this._active = false;
@@ -20,11 +23,21 @@ export class CustomerEntity {
 
   validate() {
     if (!this._name.trim()) {
-      throw new Error('name is invalid');
+      this.notification.addError({
+        context: 'customer',
+        message: 'name is invalid',
+      });
     }
 
-    if (!this._id.trim()) {
-      throw new Error('id is invalid');
+    if (!this.id.trim()) {
+      this.notification.addError({
+        context: 'customer',
+        message: 'id is invalid',
+      });
+    }
+
+    if (this.notification.hasErrors()) {
+      throw new NotificationError(this.notification.getErrors());
     }
   }
 
@@ -46,7 +59,7 @@ export class CustomerEntity {
   }
 
   getId() {
-    return this._id;
+    return this.id;
   }
   activate() {
     if (!this._address) {
@@ -56,9 +69,9 @@ export class CustomerEntity {
     this._active = true;
   }
 
-  get id(): string {
-    return this._id;
-  }
+  // get id(): string {
+  //   return this.id;
+  // }
 
   get rewardsPoints(): number {
     return this._rewardsPoints;
