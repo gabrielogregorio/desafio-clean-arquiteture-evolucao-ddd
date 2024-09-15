@@ -99,6 +99,33 @@ describe('E2e test for to customer', () => {
           },
         ],
       });
+
+      const responseXml = await request(app).get('/customer').set('Accept', 'application/xml').send();
+
+      expect(responseXml.status).toEqual(200);
+      expect(responseXml.text).toMatch(
+        new RegExp(`<\\?xml version="1.0" encoding="UTF-8"\\?>
+<customers>
+\\s*<customer>
+\\s*<id>.{10,}</id>
+\\s*<name>Jone</name>
+\\s*<address>
+\\s*<city>city</city>
+\\s*<number>123</number>
+\\s*<street>street</street>
+\\s*<zip>zip</zip>
+\\s*</address>
+\\s*<id>.{10,}</id>
+\\s*<name>listen</name>
+\\s*<address>
+\\s*<city>city</city>
+\\s*<number>123</number>
+\\s*<street>street</street>
+\\s*<zip>zip</zip>
+\\s*</address>
+\\s*</customer>
+</customers>`),
+      );
     });
   });
 });

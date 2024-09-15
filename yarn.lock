@@ -1542,6 +1542,11 @@
     expect "^29.0.0"
     pretty-format "^29.0.0"
 
+"@types/jstoxml@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@types/jstoxml/-/jstoxml-2.0.4.tgz#6086b1facdbf2e47d2225d74001705b92a17b433"
+  integrity sha512-XHUMp2t8CfJUsKt8qjlspZWlkVeveFg2eF/kRV8CKiNQ+Fd3mJkfexIDXtZEnG/4aJZRCVNNn46zNddSVIUN0w==
+
 "@types/methods@^1.1.4":
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@types/methods/-/methods-1.1.4.tgz#d3b7ac30ac47c91054ea951ce9eed07b1051e547"
@@ -4195,6 +4200,11 @@ json5@^2.2.2, json5@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.3.tgz#78cd6f1a19bdc12b73db5ad0c61efd66c1e29283"
   integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
+
+jstoxml@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/jstoxml/-/jstoxml-5.0.2.tgz#f1d3bb11a1f4ae6ee1aa1910dddc2b1411018325"
+  integrity sha512-p/Uyi1nSlAcOL+FbWCbTLAHtMbk/QlPMAE/wRLek7W8646jWII3GtLEKSBzf97UitieRWj1VZcbZxs8arq2nbg==
 
 keyv@^4.5.3:
   version "4.5.4"
