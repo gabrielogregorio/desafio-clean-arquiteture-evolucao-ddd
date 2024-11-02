@@ -1,6 +1,6 @@
 import { ProductInterface } from '@/product/entity/product.interface';
 import { ProductAggregateRepositoryInterface } from '@/product/repository/product-agregate-repository';
-import { InputListProductDto, OutputListProductDto } from '@/useCase/product/list/update.product.dto';
+import { InputListProductDto, OutputListProductDto } from '@/useCase/product/list/list.product.dto';
 
 class OutputMapper {
   static toOutput(products: ProductInterface[]): OutputListProductDto {

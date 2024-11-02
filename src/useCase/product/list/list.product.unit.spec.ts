@@ -1,6 +1,6 @@
 import { ProductEntity } from '@/product/entity/product';
 import { ProductAggregateRepositoryInterface } from '@/product/repository/product-agregate-repository';
-import { ListProductUseCase } from '@/useCase/product/list/update.product.usecase';
+import { ListProductUseCase } from '@/useCase/product/list/list.product.usecase';
 
 const product1 = new ProductEntity({
   id: '123',
